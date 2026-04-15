@@ -11,6 +11,10 @@ describe "Test del escenario de Tom Y jerry Y Nibbles" {
     assert.equals(15.2, tom.velocidad())
     
   }
+    test "Si tom come a Jerry, la energia es 102" {
+    tom.comer(jerry)
+    assert.equals(102, tom.energia())
+  }
     test "Si corre 24 metros, entonces su velocidad máxima pasa a ser 14" {
       tom.comer(jerry)
       tom.correr(24)
@@ -24,10 +28,6 @@ describe "Test del escenario de Tom Y jerry Y Nibbles" {
     assert.equals(18.7, tom.velocidad())
     
   }
-  test "Si tom come a Jerry, la energia es 102" {
-    tom.comer(jerry)
-    assert.equals(102, tom.energia())
-  }
 
   test "si Jerry cumple años (3 años de edad), y luego Tom lo vuelve a comer, pasaría a tener 25.9" {
     tom.comer(jerry)
@@ -37,21 +37,35 @@ describe "Test del escenario de Tom Y jerry Y Nibbles" {
     tom.comer(jerry)
     assert.equals(25.9, tom.velocidad())
   }
+
+  test "si corre 38 metros su velocidad pasa a ser 24 "{
+    tom.comer(jerry)
+    tom.correr(24)
+    tom.comer(nibbles)
+    jerry.cumplirAños()
+    tom.comer(jerry)
+    tom.correr(38)
+    assert.equals(24, tom.velocidad())
+  }
+  test "si corre 38 metros...(su energia es 190)" {
+    tom.comer(jerry)
+    tom.correr(24)
+    tom.comer(nibbles)
+    jerry.cumplirAños()
+    tom.comer(jerry)
+    tom.correr(38)
+    assert.equals(190, tom.energia())
+  }
+
+  //CASOS DE PRUEBA(ULTIMO PUNTO)
+
     test "Tom al inicio no esta feliz" {
 
     assert.notThat(tom.estaFeliz())
   }
   test "Tom ahora esta feliz" {
     tom.comer(jerry)
-
     assert.that(tom.estaFeliz())
   }
-  test "test 3"{
-    assert.that(true)
-  }
-
 
 }
-/*assert.equals( el valor esperado, el valor del objeto)  */
-/*assert.that: Espera como argumento 1 solo valor, booleano. Tiene que dar True para
-que este bien.*/

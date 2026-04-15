@@ -1,6 +1,7 @@
+
 object tom {
 
-    var energia = 50
+    var energia = 50ss
 
     method comer(unRaton) {
         energia =  energia + 12 + unRaton.peso()
@@ -10,13 +11,13 @@ object tom {
     method consumoPorCorrer(metros){
         return metros / 2
     }
-    
+
     method correr(metros){
         energia = energia - self.consumoPorCorrer(metros)
 
     }
 
-    method velocidad(){  //mehod de consulta
+    method velocidad(){  //method de consulta
 
         return 5 + energia / 10
     }
@@ -30,12 +31,13 @@ object tom {
     }
 
     method puedeCazar(distancia){
-        energia >= self.consumoPorCorrer(metros)
+        return energia >= self.consumoPorCorrer(distancia)
+        
     }
 
-    method cazar(unRaton,metros){
-        if(self.puedeCazar(metros)){
-            self.correr(metros)
+    method cazar( unRaton, distancia){
+        if(self.puedeCazar(distancia)){
+            self.correr(distancia)
             self.comer(unRaton)
         }
     }
