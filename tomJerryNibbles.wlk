@@ -1,7 +1,7 @@
 
 object tom {
 
-    var energia = 50ss
+    var energia = 50
 
     method comer(unRaton) {
         energia =  energia + 12 + unRaton.peso()
